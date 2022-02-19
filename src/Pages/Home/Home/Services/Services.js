@@ -1,4 +1,5 @@
 import React from 'react';
+import './Service.css';
 import img1 from '../../../../images/Icon/Group 1373.png';
 import img2 from '../../../../images/Icon/Group 1372.png';
 import img3 from '../../../../images/Icon/Group 1374.png';
@@ -6,33 +7,57 @@ import img3 from '../../../../images/Icon/Group 1374.png';
 const Services = () => {
     return (
         <div className='Container mt-6'>
-            <div className='row'>
-                <h3 className='text-center'>Our Awesome  <span>Services</span> </h3>
-                <div className='col-md-4'>
-                    <img className='img-fluid mt-4' src={img1} height={'42px'} width={'42'} alt=""></img>
-                    <p>Anti Age Face Treatment</p>
-                    $99
-                    <p className='p-3'>We craft stunning and amazing web UI, using a well drrafted UX to fit your product.</p>
+            <div className='row mt-4'>
+                <h3 className='text-center'>Our Awesome  <span className='header'>Services</span> </h3>
+                <div className='col-md-4 mt-4'>
+
+                    <div class="card">
+                        <img class=" img" src={img1} height={'42px'} width={'42'} alt="Card image cap" />
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div className='col-md-4 mt-4'>
+
+
+                    <div class="card">
+                        <img class="img " src={img2} height={'42px'} width={'42'} alt="Card image cap" />
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div className='col-md-4 mt-4'>
+
+
+                    <div class="card">
+                        <img class="img " src={img3} height={'42px'} width={'42'} alt="Card image cap" />
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+
+                    </div>
+
+
+
 
                 </div>
-                <div className='col-md-4'>
-                    <img src={img2} height={'42px'} width={'42'} alt=""></img>
-                    <p>Hair Color & Styleing</p>
-                    $199
-                    <p className='pt-3'>Amazing flyers, social media posts and brand representations that would make your brand stand out.</p>
 
-                </div>
-                <div className='col-md-4 p-3'>
-                    <img src={img3} height={'42px'} width={'42'} alt=""></img>
-                    <p>Skin Care Treatment</p>
-                    $299
-                    <p className='pt-4'>With well written codes, we build amazing apps for all platforms, mobile and web apps in general.</p>
-
-                    <div className='btn btn-btn text-center'>Explore More</div>
-
-                </div>
 
             </div>
+            <div className='btn  button mt-5'>Explore More</div>
+
+
+
+
+
+
 
 
         </div>

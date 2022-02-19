@@ -1,12 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../../../images/logo.png';
 import './Navbar.css';
+import { Nav } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 import React from 'react';
 
 const Navbar = () => {
     return (
-        <div className="Container">
+        <div className="container">
         
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand"  href="#"></a>
@@ -17,19 +19,26 @@ const Navbar = () => {
   <div className="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
     <ul className="navbar-nav  p-3">
       <li className="nav-item active ">
-        <a className="nav-link" href="#">Home <span className="sr-only"></span></a>
+        {/* <a className="nav-link" href="#">Home <span className="sr-only"></span></a> */}
+        <Nav.Link  className="nav-link" as={Link} to="/home">Home</Nav.Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Our Portfolio</a>
+        {/* <Link className='nave-link' to="/portfolio" >Our Portfolio</Link> */}
+        <Nav.Link  className="nav-link" as={Link} to="/portfolio">Portfolio</Nav.Link>
+     
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Our Team</a>
-      </li>
+        {/* <Link className="nav-link" to="/ourteam">Our Team <Link/> */}
+        <Nav.Link  className="nav-link" as={Link} to="/ourteam">Our Team</Nav.Link>
+        </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Contact Us</a>
+       
+        {/* <Link className='nave-link' to="/contact" >Contact us</Link> */}
+        <Nav.Link  className="nav-link" as={Link} to="/contact">Contact</Nav.Link>
       </li>
       <li className="nav-item nav">
-        <a className="nav-link text-white" href="#">Login</a>
+      <Nav.Link  className="nav-link" as={Link} to="/login">Login</Nav.Link>
+        {/* <Link className='nave-link' to="/login" >Login</Link> */}
       </li>
       
     </ul>
