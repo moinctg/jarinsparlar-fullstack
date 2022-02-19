@@ -13,7 +13,7 @@ const Banner = () => {
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat
                     </p>
-                    <button className='button text-white'>Get an Appointment</button>
+                    <div className='btn btn-btn'>Get an Appointment</div>
 
                 </div>
                 <div className='col-md-6  p-5'>

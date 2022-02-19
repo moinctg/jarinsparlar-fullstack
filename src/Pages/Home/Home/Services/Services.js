@@ -5,7 +5,7 @@ import img3 from '../../../../images/Icon/Group 1374.png';
 
 const Services = () => {
     return (
-        <div className='Container mt-4'>
+        <div className='Container mt-6'>
             <div className='row'>
                 <h3 className='text-center'>Our Awesome  <span>Services</span> </h3>
                 <div className='col-md-4'>
@@ -28,6 +28,7 @@ const Services = () => {
                     $299
                     <p className='pt-4'>With well written codes, we build amazing apps for all platforms, mobile and web apps in general.</p>
 
+                    <div className='btn btn-btn text-center'>Explore More</div>
 
                 </div>
 
