@@ -11,7 +11,8 @@ const useFirebase = () =>{
     const [ user, setUser ] = useState(null)
     const [ modal, setModal ] = useState(false)
     const [ authError, setAuthError ] = useState('');
-    const [ isLoading, setIsLoading ] = useState(true);
+    const [ isLoading, setIsLoading ] = useState(true)
+    const [admin, setAdmin] = useState(false)
 
     useEffect( ()=>{
         onAuthStateChanged(auth, user =>{
@@ -25,13 +26,12 @@ const useFirebase = () =>{
         })
     },[])
 
-    const googleSignIn = (location,navigator) =>{
+    const googleSignIn = () =>{
         signInWithPopup(auth,provider)
         .then( result =>{
             setUser(result.user)
-            console.log(location.state.from);
-            const destination = location.state.from || '/';
-            navigator(destination)
+            userDatabase(result.user.email, result.user.displayName, 'PUT')
+            setModal(true)
         })
         .catch( error =>{
             setAuthError(error.message)
@@ -41,10 +41,12 @@ const useFirebase = () =>{
         createUserWithEmailAndPassword(auth, user.email, user.password)
         .then( result => {
             setUser(result.user)
+            
             updateProfile(auth.currentUser, {
                 displayName: user.name})
                 .then(() => {
-
+                    
+                userDatabase(user.email , user.name , 'POST')
                 setModal(true)
                 
               }).catch((error) => {
@@ -56,12 +58,20 @@ const useFirebase = () =>{
         })
     }
 
-    const loginUser = ({email,password,location,navigator} ) =>{
+    useEffect(() => {
+        fetch(`http://localhost:8000/users/${user?.email}`)
+        .then(res => res.json())
+        .then(data => setAdmin(data.admin))
+
+        .catch(error => {
+            console.log('admin error')
+        })
+      }, [user?.email])
+
+    const loginUser = ({email,password} ) =>{
         signInWithEmailAndPassword( auth, email, password )
         .then( result => {
             setUser(result.user)
-            // const destination = location.state.from || '/';
-            // navigator(destination)
             setModal(true)
         })
         .catch( error =>{
@@ -77,9 +87,24 @@ const useFirebase = () =>{
           });
     }
 
+    const userDatabase = (email, displayName , method) => {
+        const user = {email, displayName, admin:false}
+        fetch('http://localhost:8000/users', {
+          method: method,
+          headers:{
+            'content-type' : 'application/json'
+          },
+          body:JSON.stringify(user)
+        })
+        .then( res=>res.json())
+        .then( data=> console.log(data))
+  
+      }
+
     return {
         user,
         authError,
+        admin,
         googleSignIn,
         registerUser,
         loginUser,

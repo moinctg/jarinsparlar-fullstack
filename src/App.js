@@ -10,6 +10,7 @@ import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import Portfolio from './Pages/Portfolio/Portfolio';
 import OurTeam from './Pages/OurTeam/OurTeam';
+import Dashboard from './Pages/Dashboard/Deshboard/Dashboard';
 function App() {
   return (
     
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" element={<Login></Login>} />
         <Route path="/portfolio" element={<Portfolio></Portfolio>} />
         <Route path="/ourteam" element={<OurTeam></OurTeam>} />
+        <Route path="/dashboard" element={<Dashboard></Dashboard>} />
        
        
       </Routes>

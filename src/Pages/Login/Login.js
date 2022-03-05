@@ -10,6 +10,7 @@ import useAuth from '../../hooks/useAuth';
 const Login = () => {
     const [loginFromData ,  setLoginFromData] = useState({})
     const { user, googleSignIn, loginUser, modal, setModal } = useAuth()
+    console.log(googleSignIn);
     const location = useLocation();
     const navigator = useNavigate();
 
