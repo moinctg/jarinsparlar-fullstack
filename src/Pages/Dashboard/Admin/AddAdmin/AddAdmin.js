@@ -37,3 +37,4 @@ const handleAdmin = e => {
     </div>
   );
 };
+export default AddAdmin;

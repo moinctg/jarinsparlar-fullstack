@@ -1,51 +1,132 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faHome , faSignOutAlt, faCartPlus, faComment, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUserCircle, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import logo from './../../../images/logo.png';
 import { Link, Outlet } from 'react-router-dom';
 import './Dashboard.css'
 import useAuth from '../../../hooks/useAuth';
-import { Button, Nav, Tab } from 'react-bootstrap';
+
+import { Button } from 'react-bootstrap';
 
 function Dashboard(props) {
+    const { window } = props
+    const [mobileOpen, setMobileOpen] = React.useState(false)
+    const { admin } = useAuth()
+    const handleSrawerToggle = () => {
+        setMobileOpen(!mobileOpen)
+    }
 
-    const home  = <FontAwesomeIcon icon={faHome} />
-    const cartIcon  = <FontAwesomeIcon icon={faCartPlus} />
-    const review  = <FontAwesomeIcon icon={faComment} />
-    const userIcon  = <FontAwesomeIcon icon={faUserAlt} />
-    const singout  = <FontAwesomeIcon icon={faSignOutAlt} />
-    const { logOut } = useAuth();
 
-  return(<>
-          <div className='dashboard-menu-container'>
-                <Tab.Container defaultActiveKey="third">
+    const book = <FontAwesomeIcon icon={faShoppingCart} />
+    const singout = <FontAwesomeIcon icon={faSignOutAlt} />
+    const { user, logOut } = useAuth();
+
+
+
+    return <div className='container'>
+        <div className='row'>
+
+            <div className='col-md-3 col-lg-3'>
+                <img className="logo" src={logo}  alt="" />
+
                 <div className='sidebar-container'>
-                <Nav variant="pills" className="flex-column dashboard-nav-links">
-                  <Nav.Item className=''>
-                  
 
-                    <Nav.Link>
-                      <Link  to={`/`} className='dashboard-menu' ><span className='logo-style' >{home}</span>Home</Link> 
-                    </Nav.Link>
-                    <Nav.Link eventKey="third">
-                      <Link  to={`/dashboard/review`} className='dashboard-menu' ><span className='logo-style' >{review}</span>Review</Link>
-                    </Nav.Link>
-                      <Nav.Link eventKey="first"><Link  to={`/dashboard/addadmin`} className='dashboard-menu' ><span className='logo-style' >{userIcon}</span> Admin</Link>
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="second"><Link  to={`/dashboard/addproduct`} className='dashboard-menu' ><span className='logo-style' >{cartIcon}</span>Add-Product</Link>
-                  </Nav.Link>
-                    <Button onClick={logOut} variant="danger" className="m-3">{singout}LogOut</Button>
-                  </Nav.Item>
-                </Nav>
+                    <ul className='text-center text '>
+                        <li>
+                            <Link to='/book' className='dashboard-menu' >
+                                <span className='logo-style' >{book}</span>
+                                Book</Link>
+                        </li>
+                        <li>
+                            <Link to='/bookinglist' className='dashboard-menu' >
+                                <span className='logo-style' >{book}</span>
+                                Bookking List</Link>
+                        </li>
+                        <li>
+                            <Link to={`/dashboard/addadmin`} className='dashboard-menu' >
+
+                                <span className='logo-style' >{}</span>
+                                Admin</Link>
+                        </li>
+                        <li>
+                            <Link to={`/dashboard/addproduct`} className='dashboard-menu' >
+                                <span className='logo-style' >{}</span>
+                                addProduct</Link>
+                        </li>
+
+                        <li>
+                            <Link to={`/dashboard/review`} className='dashboard-menu' >
+                                <span className='logo-style' >{}</span>
+                                Review</Link>
+                        </li>
+
+
+
+
+
+
+
+
+                    </ul>
                 </div>
-                
-              <div className='border'>
+            </div>
+            <div className='col-md-9 col-lg-9'>
+                <div className='row'>
+                    <div className='col-lg-6 mt-5'>
+                        <h4 className=''>Service List</h4>
+                        <div className='row mt-5'>
+                            <div className='col-lg-6'>
+                                <div class="card ">
+                                    <img class="card-img-top" src="..." alt="Card image cap" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className='col-lg-6'>
+                                <div class="card">
+                                    <img class="card-img-top" src="..." alt="Card image cap" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="">This card has supporting text below as a natural lead-in to additional content.</p>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-deck">
+
+
+
+                        </div>
+
+                    </div>
+                    <div className='col-lg-6 mt-5'>
+                        <li>
+
+                            <span className='logo-style text' >{singout}</span>
+                            <Button onClick={logOut}>LogOut</Button>
+
+                        </li>
+
+
+                    </div>
+                </div>
                 <Outlet></Outlet>
-              </div>
-                </Tab.Container>
-          </div>;
-</>)
+
+
+            </div>
+        </div>
+    </div>;
+
+
+
+
+
 }
 
 export default Dashboard;

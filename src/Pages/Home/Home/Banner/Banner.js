@@ -14,7 +14,7 @@ const Banner = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing <br/>
                        elit. Purus commodo ipsum duis laoreet maecenas. Feugiat
                     </p>
-                    <div className='btn banner-button'>Get an Appointment</div>
+                    <div className=' banner-button'>Get an Appointment</div>
 
                 </div>
                 <div className='col-md-6 '>

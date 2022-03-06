@@ -51,7 +51,7 @@ const Services = () => {
 
 
             </div>
-            <div className='btn  button mt-5'>Explore More</div>
+            <div className='button mt-5'>Explore More</div>
 
 
 
