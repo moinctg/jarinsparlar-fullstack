@@ -2,9 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUserCircle, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import logo from './../../../images/logo.png';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet,Nav  } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import './Dashboard.css'
 import useAuth from '../../../hooks/useAuth';
+
 
 import { Button } from 'react-bootstrap';
 
@@ -18,6 +20,7 @@ function Dashboard(props) {
 
 
     const book = <FontAwesomeIcon icon={faShoppingCart} />
+    const icon =<FontAwesomeIcon icon={faUserCircle} />
     const singout = <FontAwesomeIcon icon={faSignOutAlt} />
     const { user, logOut } = useAuth();
 
@@ -106,12 +109,28 @@ function Dashboard(props) {
 
                     </div>
                     <div className='col-lg-6 mt-5'>
-                        <li>
+                    {
+              user ?.email ?
+               <>
+               {user?.displayName} {icon} 
+               <span className='logo-style text' >{singout}</span><Button onClick={ logOut }>Logout</Button>
+               <li className="nav-item">
+                    
+       
+        {/* <Link className='nave-link' to="/contact" >Contact us</Link> */}
+        {/* <Nav.Link  className="nav-link" as={Link} to="/dashboard">Dashboard</Nav.Link> */}
+      </li>
+                </>
+               
+               : <Link className='nav' as={Link} to="/login">Login</Link>
+            }
+                        {/* <li>
+                            
 
                             <span className='logo-style text' >{singout}</span>
                             <Button onClick={logOut}>LogOut</Button>
 
-                        </li>
+                        </li> */}
 
 
                     </div>

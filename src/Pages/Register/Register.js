@@ -92,16 +92,16 @@ const Register = () => {
       </div>
       
       <input  type="submit" value='Create an Account' />
-      <NavLink as={Link} to='/login'  >Already Have Account ? Login </NavLink>
+      <NavLink as={Link} to='/login' className='text-secondary'  >Already Have Account ? Login </NavLink>
       {/* <button type="button" class="btn btn-button btn-lg btn-block">Block level button</button>   */}
   </div>
 </form>
- <p className=' text-center'>-----------Or--------</p>
+ {/* <p className=' text-center border-0'>-Or</p>
 <div className='text-center'>
     <p className='  border-right-3 rounded-circle'><a href="#" class="fa fa-facebook"></a> Continue with Facebook</p>
 
   <p className=' border-right-0 rounded-circle'><a href="#" class="fa fa-google"></a> Continue with Google </p>
-</div>
+</div> */}
             
             
             

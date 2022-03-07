@@ -11,20 +11,20 @@ const Footer = () => {
                 </div>
                 <div className="col-md-3">
                     <h3 className='text-white p-4'>Company</h3>
-                    <h5 className='text-white'>About</h5> <br />
-                    <h5 className='text-white'>Project</h5> <br />
-                    <h5 className='text-white'>Our Team</h5> <br />
-                    <h5 className='text-white'>Term Conditions</h5> <br />
-                    <h5 className='text-white'>Submit Lisiting</h5> <br />
+                    <p className='text-white'>About</p> <br />
+                    <p className='text-white'>Project</p> <br />
+                    <p className='text-white'>Our Team</p> <br />
+                    <p className='text-white'>Term Conditions</p> <br />
+                    <p className='text-white'>Submit Lisiting</p> <br />
 
                 </div>
                 <div className="col-md-3">
                     <h3 className='text-white p-4'>Quick Links</h3>
-                    <h5 className='text-white'>Quick Links</h5> <br />
-                    <h5 className='text-white'>Quick Links</h5> <br />
-                    <h5 className='text-white'>Quick Links</h5> <br />
-                    <h5 className='text-white'>Quick Links</h5> <br />
-                    <h5 className='text-white'>Quick Links</h5> <br />
+                    <p className='text-white'>Quick Links</p> <br />
+                    <p className='text-white'>Quick Links</p> <br />
+                    <p className='text-white'>Quick Links</p> <br />
+                    <p className='text-white'>Quick Links</p> <br />
+                    <p  className='text-white'>Quick Links</p> <br />
 
                 </div>
                 <div className="col-md-3 p-4">

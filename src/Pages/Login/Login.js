@@ -35,7 +35,7 @@ const Login = () => {
         <Modal.Body>Hello Mr./Ms. {user?.displayName} You have successfully logged in !</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={ ()=>setModal(false)}>
-            <Link style={{color:'white',textDecoration:'none'}} to="/">Go To Home</Link>
+            <Link style={{color:'white',textDecoration:'none'}} to="/dashboard">Go To Home</Link>
           </Button>
         </Modal.Footer>
       </Modal>

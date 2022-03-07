@@ -1,0 +1,20 @@
+
+.players{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /* grid-template-columns: repeat(1fr 1fr 1fr); */
+
+}
+.player{
+    display: flex;
+}
+.player img{
+    width:64px;
+    height: 64px;
+}
+.player-name{
+
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+}

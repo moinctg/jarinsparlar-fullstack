@@ -8,30 +8,47 @@ import img3 from '../../../../images/Image/Ellipse 92.png';
 const Testomonials = () => {
     return (
         <div className='Container mt-5'>
-            <h1 className='text-center'>Testimonials</h1>
-            <div  className='row '>
-                <div className='col-md-4 flex-d'>
-                   <div> <img src={img1} width={'64'} height={'64'} alt=""></img>   
+            <h1 className='text-center p-5'>Testimonials</h1>
+            <div  className='row players '>
+                <div className='col-md-4  '>
+                    <div className='player'>
+                    <img  src={img1}  alt=""></img>   
+                   
+                   <h3 className='player-name'>Nash Patrik <br/>
+                   Ceo </h3>
                     </div>
-                    <div>Nash Patrik <br/>
-                    CEO</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat </p>                
+                   
+                    <div>
+                <p className='p-3 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat </p>    
+                </div>         
                 </div>
-                <div className='col-md-4'>
-                <img src={img2} width={'64'} height={'64'} alt=""></img>  
-                <div>Nash Patrik <br/>
-                    CEO</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat </p>                
+               
+                <div className='col-md-4  '>
+                    <div className='player'>
+                    <img  src={img2}  alt=""></img>   
+                   
+                   <h3 className='player-name'>Nash Patrik <br/>
+                   Ceo </h3>
+                    </div>
+                   
+                    <div>
+                <p className='p-3 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat </p>    
+                </div>         
                 </div>
 
                 
-                <div className='col-md-4'>
-                <img src={img3}width={'64'} height={'64'} alt=""></img>  
-                <div>Nash Patrik <br/>
-                    CEO</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat </p>                
+                <div className='col-md-4  '>
+                    <div className='player'>
+                    <img  src={img3}  alt=""></img>   
+                   
+                   <h3 className='player-name'>Nash Patrik <br/>
+                   Ceo </h3>
+                    </div>
+                   
+                    <div>
+                <p className='p-3 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat </p>    
+                </div>         
                 </div>
-                
                 
 
 
