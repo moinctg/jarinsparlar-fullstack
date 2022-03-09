@@ -3,25 +3,25 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchProduct = createAsyncThunk(
   'allProducts/fetchAllProducts',
   async()=>{
-    const response = await fetch('https://powerful-oasis-75511.herokuapp.com/products')
+    const response = await fetch('./Service.JSON')
     .then( res => res.json())
     return response;
   }
 )
 
 const productSlice = createSlice({
-  name:'Products',
+  name:'Service',
   initialState:{
-    allProducts: [],
-    displayProducts:[],
-    cartProduct:[],
+    allService: [],
+    displayService:[],
+    cartService:[],
     cartPrice: 0,
-    productCategory:'Man',
+    serviceCategory:'Man',
     isLoading: true,
   },
   reducers: {
-    setDisplayProduct : (state,action)=>{
-      if(state.allProducts.length > 0){
+    setDisplayService : (state,action)=>{
+      if(state.allService.length > 0){
         const categoryProducts = state.allProducts.filter( p => p.catagory === state.productCategory)
         state.displayProducts = categoryProducts;
       }
