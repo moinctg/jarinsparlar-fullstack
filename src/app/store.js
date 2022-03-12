@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import products from '../features/counter/counterSlice';
+import service from '../features/counter/counterSlice';
 export const store = configureStore({
   reducer: {
-    products: products,
+    services: service,
   }
 });

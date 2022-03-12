@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchProduct = createAsyncThunk(
-  'allProducts/fetchAllProducts',
+export const fetchService = createAsyncThunk(
+  'allService/fetchAllService',
   async()=>{
-    const response = await fetch('./Service.JSON')
+    const response = await fetch('./service.json')
     .then( res => res.json())
     return response;
   }
 )
 
-const productSlice = createSlice({
+const serviceSlice = createSlice({
   name:'Service',
   initialState:{
     allService: [],
@@ -22,8 +22,8 @@ const productSlice = createSlice({
   reducers: {
     setDisplayService : (state,action)=>{
       if(state.allService.length > 0){
-        const categoryProducts = state.allProducts.filter( p => p.catagory === state.productCategory)
-        state.displayProducts = categoryProducts;
+        const categoryService = state.allService.filter( p => p.catagory === state.ServiceCategory)
+        state.displayService = categoryService;
       }
     },
     deleteFromCart:(state,action)=>{
@@ -32,56 +32,56 @@ const productSlice = createSlice({
     },
     increaseProductQuantity: (state,action)=>{
       let newCart = []
-      state.cartProduct.forEach(pd=>{
+      state.cartService.forEach(pd=>{
         if(pd._id === action.payload._id){
           const newQuantity = action.payload.quantity + 1;
-          let product = {...action.payload}
-          product.quantity = newQuantity;
-          newCart.push(product)
+          let service = {...action.payload}
+          service.quantity = newQuantity;
+          newCart.push(service)
         }
         else{
           newCart.push(pd)
         }
       })
-      state.cartProduct = newCart;
+      state.cartService = newCart;
       
     },
     decreaseProductQuantity: (state,action)=>{
       let newCart = []
-      state.cartProduct.forEach(pd=>{
+      state.cartService.forEach(pd=>{
         if(pd._id === action.payload._id){
           const newQuantity = action.payload.quantity - 1;
-          let product = {...action.payload}
-          product.quantity = newQuantity;
-          newCart.push(product)
+          let service = {...action.payload}
+          service.quantity = newQuantity;
+          newCart.push(service)
         }
         else{
           newCart.push(pd)
         }
       })
-      state.cartProduct = newCart;
+      state.cartService = newCart;
       
     },
     setCartPrice: (state,action)=>{
-      if(state.cartProduct.length>0){
+      if(state.cartService.length>0){
         let totalPrice = 0;
-        state.cartProduct.forEach(pd=>{
+        state.cartService.forEach(pd=>{
           totalPrice += parseInt(pd.price)*pd.quantity;
         })
         state.cartPrice = totalPrice;
       }
     },
-    setProductsCategory: (state,action)=>{
-      state.productCategory = action.payload;
-      const categoryProducts = state.allProducts.filter( p => p.catagory === state.productCategory)
-      state.displayProducts = categoryProducts;
+    setServiceCategory: (state,action)=>{
+      state.serviceCategory = action.payload;
+      const categoryService = state.allProducts.filter( p => p.catagory === state.serviceCategory)
+      state.displayService = categoryService;
     },
-    setProductToCart:(state,action)=>{
+    setServiceToCart:(state,action)=>{
       let exist = []
-      if(state.cartProduct.length > 0){
-        const existProduct =  state.cartProduct.find( pd=>pd._id === action.payload._id);
-        exist.push(existProduct)
-        if(!existProduct){
+      if(state.cartService.length > 0){
+        const existService =  state.cartService.find( pd=>pd._id === action.payload._id);
+        exist.push(existService)
+        if(!existService){
           exist = [];
         }
       }
@@ -91,20 +91,20 @@ const productSlice = createSlice({
         You can increase the quantity from cart page !`)
       }
       else{
-        state.cartProduct.push({...action.payload, quantity: 1})
+        state.cartService.push({...action.payload, quantity: 1})
       }
     }
 
   },
   extraReducers: ( builder ) =>{
-    builder.addCase(fetchProduct.fulfilled,(state, action)=>{
-      state.allProducts = action.payload;
+    builder.addCase(fetchService.fulfilled,(state, action)=>{
+      state.allService = action.payload;
       state.isLoading = false;
     })
     
     
   }
 })
-export const { setDisplayProduct, setProductsCategory, setProductToCart, setCartPrice, increaseProductQuantity, decreaseProductQuantity, deleteFromCart } = productSlice.actions;
+export const { setDisplayService, setServiceCategory, setServiceToCart, setCartPrice, increaseProductQuantity, decreaseProductQuantity, deleteFromCart } = serviceSlice.actions;
 
-export default productSlice.reducer;
+export default serviceSlice.reducer;

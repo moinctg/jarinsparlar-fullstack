@@ -1,10 +1,17 @@
 import React from 'react';
 import './Service.css';
+import {useState,useEffect} from 'react';
 import img1 from '../../../../images/Icon/Group 1373.png';
 import img2 from '../../../../images/Icon/Group 1372.png';
 import img3 from '../../../../images/Icon/Group 1374.png';
 
 const Services = () => {
+    const [allService,setAllService] = useState ([]);
+    useEffect( () =>{
+        fetch('./service.json')
+
+    }
+        ,[])
     return (
         <div className='Container mt-6'>
             <div className='row mt-4'>
