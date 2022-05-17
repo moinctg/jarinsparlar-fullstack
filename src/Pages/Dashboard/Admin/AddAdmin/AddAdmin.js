@@ -13,7 +13,7 @@ const AddAdmin = () => {
 
 const handleAdmin = e => {
   const user = {email}
-  fetch('http://localhost:8000//users/admin', {
+  fetch('http://localhost:8000/users/admin', {
       method:'PUT',
       headers:{
        'content-type':'application/json'

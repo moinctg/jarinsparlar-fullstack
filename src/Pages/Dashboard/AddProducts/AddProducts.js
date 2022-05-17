@@ -8,11 +8,11 @@ const AddProduct = () => {
     const {register, handleSubmit, reset} = useForm()
 
     const onSubmit = data => {
-        axios.post('http://localhost:8000/services' , data)
+        axios.post('http://localhost:8000/service' , data)
         .then(res => {
             console.log(res)
             if(res.data.insertedId){
-                alert('added produst successfuly')
+                alert('added product successfuly')
                 reset()
             }
         })

@@ -1,0 +1,13 @@
+.contact-button{
+    background-color: #F63E7B;
+    color:white;
+    margin-left: 550px;
+    width:200px;
+    border-radius: 5px;
+    padding: 10px;
+    height:50px;
+
+}
+.contact-button:hover{
+    color:whitesmoke;
+}

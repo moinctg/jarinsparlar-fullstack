@@ -2,9 +2,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../../../images/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faShoppingCart, faUserCircle  } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 import './Navbar.css';
 import useAuth from '../../../../hooks/useAuth';
 import { Nav,Button} from 'react-bootstrap';
+import { HashLink } from 'react-router-hash-link';
 import { Link, NavLink } from 'react-router-dom';
 
 import React from 'react';
@@ -13,6 +15,8 @@ const Navbar = () => {
 
   const element = <FontAwesomeIcon icon={faShoppingCart} />
   const icon =<FontAwesomeIcon icon={faUserCircle} />
+  const cartLength = useSelector( state => state.services.cartService)
+  console.log(cartLength);
 
   const { user, logOut } = useAuth()
     return (
@@ -44,6 +48,15 @@ const Navbar = () => {
         {/* <Link className='nave-link' to="/contact" >Contact us</Link> */}
         <Nav.Link  className="nav-link" as={Link} to="/contact">Contact</Nav.Link>
       </li>
+      <li className="nav-item">
+       
+        {/* <Link className='nave-link' to="/contact" >Contact us</Link> */}
+        <Nav.Link className='link-style cart-button' as={Link} to="/cart"><h6>{cartLength.length}{element}</h6></Nav.Link>
+      </li>
+
+
+
+
       {/* <li className="nav-item nav">
       <Nav.Link  className="nav-link" as={Link} to="/login">Login</Nav.Link>
       </li>
@@ -53,7 +66,7 @@ const Navbar = () => {
             {
               user ?.email ?
                <>
-               {user?.displayName} {icon} <Button onClick={ logOut }>Logout</Button>
+               {user.displayName} {icon} <Button onClick={ logOut }>Logout</Button>
                <li className="nav-item">
        
         {/* <Link className='nave-link' to="/contact" >Contact us</Link> */}

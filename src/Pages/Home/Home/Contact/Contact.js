@@ -1,4 +1,5 @@
 import React from 'react';
+import './Contact.css';
 
 const Contact = () => {
     return (
@@ -23,7 +24,12 @@ project, professionally.</h1>
   <div class="row g-3">
   <div class="col-md-12">
     <input type="text" class="form-control" placeholder="phone" aria-label="address"/>
+ 
   </div>
+
+  </div>
+  <div class="col-md-6">
+  <button className='contact-button text-center'>Send Me</button>
   </div>
 </div>
 

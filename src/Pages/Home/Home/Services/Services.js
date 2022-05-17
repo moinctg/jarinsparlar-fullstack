@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Service.css';
 import {useState,useEffect} from 'react';
 import img1 from '../../../../images/Icon/Group 1373.png';
@@ -6,12 +7,12 @@ import img2 from '../../../../images/Icon/Group 1372.png';
 import img3 from '../../../../images/Icon/Group 1374.png';
 
 const Services = () => {
-    const [allService,setAllService] = useState ([]);
-    useEffect( () =>{
-        fetch('./service.json')
+    // const [allService,setAllService] = useState ([]);
+    // useEffect( () =>{
+    //     fetch('./service.json')
 
-    }
-        ,[])
+    // }
+    //     ,[])
     return (
         <div className='Container mt-6'>
             <div className='row mt-4'>
@@ -61,7 +62,9 @@ const Services = () => {
 
 
             </div>
-            <div className='service-head'>Explore More</div>
+            <div className='service-head'>
+            <NavLink to="/allservices">
+                Explore More </NavLink></div>
 
 
 

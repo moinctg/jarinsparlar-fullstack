@@ -1,36 +1,38 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchService = createAsyncThunk(
-  'allService/fetchAllService',
+  'allServices/fetchAllServices',
   async()=>{
-    const response = await fetch('./service.json')
+    const response = await fetch('./service.JSON')
     .then( res => res.json())
     return response;
   }
 )
 
 const serviceSlice = createSlice({
-  name:'Service',
+  name:'Services',
   initialState:{
-    allService: [],
-    displayService:[],
+    allServices: [],
+    displayServices:[],
     cartService:[],
     cartPrice: 0,
-    serviceCategory:'Man',
+    serviceCategory:"Anti Age Face Treatment",
+    serviceCategory:"Manicure and Pedicure",
+    serviceCategory:"Hair Treatment",
     isLoading: true,
   },
   reducers: {
     setDisplayService : (state,action)=>{
-      if(state.allService.length > 0){
-        const categoryService = state.allService.filter( p => p.catagory === state.ServiceCategory)
-        state.displayService = categoryService;
+      if(state.allServices.length > 0){
+        const categoryServices = state.allServices.filter( p => p.catagory === state.ServiceCategory)
+        state.displayServices = categoryServices;
       }
     },
     deleteFromCart:(state,action)=>{
-     const newCart = state.cartProduct.filter(pd=>pd._id !== action.payload._id)
-     state.cartProduct = newCart;
+     const newCart = state.cartService.filter(pd=>pd._id !== action.payload._id)
+     state.cartService = newCart;
     },
-    increaseProductQuantity: (state,action)=>{
+    increaseServiceQuantity: (state,action)=>{
       let newCart = []
       state.cartService.forEach(pd=>{
         if(pd._id === action.payload._id){
@@ -46,7 +48,7 @@ const serviceSlice = createSlice({
       state.cartService = newCart;
       
     },
-    decreaseProductQuantity: (state,action)=>{
+    decreaseServiceQuantity: (state,action)=>{
       let newCart = []
       state.cartService.forEach(pd=>{
         if(pd._id === action.payload._id){
@@ -73,8 +75,8 @@ const serviceSlice = createSlice({
     },
     setServiceCategory: (state,action)=>{
       state.serviceCategory = action.payload;
-      const categoryService = state.allProducts.filter( p => p.catagory === state.serviceCategory)
-      state.displayService = categoryService;
+      const categoryService = state.allServices.filter( p => p.catagory === state.serviceCategory)
+      state.displayServices = categoryService;
     },
     setServiceToCart:(state,action)=>{
       let exist = []
@@ -98,13 +100,13 @@ const serviceSlice = createSlice({
   },
   extraReducers: ( builder ) =>{
     builder.addCase(fetchService.fulfilled,(state, action)=>{
-      state.allService = action.payload;
+      state.allServices = action.payload;
       state.isLoading = false;
     })
     
     
   }
 })
-export const { setDisplayService, setServiceCategory, setServiceToCart, setCartPrice, increaseProductQuantity, decreaseProductQuantity, deleteFromCart } = serviceSlice.actions;
+export const { setDisplayService, setServiceCategory, setServiceToCart, setCartPrice, increaseServiceQuantity, decreaseServiceQuantity, deleteFromCart } = serviceSlice.actions;
 
 export default serviceSlice.reducer;

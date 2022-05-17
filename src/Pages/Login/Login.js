@@ -10,7 +10,7 @@ import useAuth from '../../hooks/useAuth';
 const Login = () => {
     const [loginFromData ,  setLoginFromData] = useState({})
     const { user, googleSignIn, loginUser, modal, setModal } = useAuth()
-    console.log(googleSignIn);
+    // console.log(googleSignIn);
     const location = useLocation();
     const navigator = useNavigate();
 
@@ -24,8 +24,13 @@ const Login = () => {
 
     const handleLoginSubmit = e => {
         e.preventDefault()
-        loginUser({...loginFromData,location,navigator})
+        loginUser({...loginFromData.email,...loginFromData.password,location,navigator})
     }
+    const handleGoogleSignIn = () =>{
+      googleSignIn (location,navigator)
+
+    }
+     console.log(handleGoogleSignIn)
     return (
         <div className='container mt-5'>
            <Modal show={modal}>
@@ -39,9 +44,11 @@ const Login = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-        <form className="form" onSubmit={handleLoginSubmit} >
+      <div className="col-lg-12" >
+      <form className="form" onSubmit={handleLoginSubmit} >
             <div className='main-form p-3'>
                 <h2>Login With </h2>
+                <div className="col-lg-12">
                 
                 <div className='form-group'>
                     <label htmlFor="email">Email:</label>
@@ -53,7 +60,11 @@ const Login = () => {
                       id="inputEmail3"
                        onBlur={handleOnBlur}  label="email" 
                        required/>
+                       </div>
                 </div>
+                <div className="col-lg-12">
+
+             
                 <div className='form-group'>
                     <label htmlFor="password">Password:</label>
                     <input
@@ -67,13 +78,16 @@ const Login = () => {
                
                 <input className="input" type="submit" value='LOGIN' /> <br/>
                   <p className="text-center">--------Or--------</p>
-                <button className="" onClick={ ()=> googleSignIn(location,navigator) }><img style={{width:'30px', marginLeft:'30px'}} src={google} alt="" /></button>
+                <button className="" onClick={ handleGoogleSignIn}><img style={{width:'30px', marginLeft:'30px'}} src={google} alt="" /></button>
                 
                     <NavLink as={Link} to='/register' >Don't have account? create an account</NavLink>
                    
-                
+                    </div>
             </div>
         </form>
+
+      </div>
+       
         </div>
     );
 };
